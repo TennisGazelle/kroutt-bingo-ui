@@ -165,11 +165,20 @@ const ControlsBox = ({ gameMode, setGameMode, onReset }: ControlsProps) => (
   </Paper>
 );
 
+import { CardScanner } from './CardScanner';
+
 // --- Main Layout ---
 function App() {
   const [calledNumbers, setCalledNumbers] = useState<Set<number>>(new Set());
   const [lastNumber, setLastNumber] = useState<number | null>(null);
   const [gameMode, setGameMode] = useState<string>('line');
+  const [scannerOpen, setScannerOpen] = useState(false);
+
+  const handleScanComplete = (grid: number[][]) => {
+    console.log("Scanned Grid:", grid);
+    // TODO: Do something with this grid (e.g. validate it against called numbers)
+    alert("Card Scanned! Check console for grid data.");
+  };
 
   const handleToggleNumber = (num: number) => {
     const newSet = new Set(calledNumbers);
@@ -215,6 +224,14 @@ function App() {
               {/* Middle: Info */}
               <Grid item xs={4}>
                 <InfoBox />
+                <Button 
+                  variant="outlined" 
+                  size="small" 
+                  sx={{ mt: 1,color: 'text.secondary', borderColor: 'text.secondary' }}
+                  onClick={() => setScannerOpen(true)}
+                >
+                  📷 Mobile Scan (Beta)
+                </Button>
               </Grid>
 
               {/* Right: Controls */}
@@ -225,6 +242,12 @@ function App() {
             </Grid>
           </Grid>
         </Container>
+        
+        <CardScanner 
+          open={scannerOpen} 
+          onClose={() => setScannerOpen(false)} 
+          onScanComplete={handleScanComplete} 
+        />
       </Box>
     </ThemeProvider>
   );
