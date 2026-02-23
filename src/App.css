@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+/* button stuff */
+
+button {
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  margin: 20px auto;
+}
+
+.bingo-button, .bingo-button:link, .bingo-button:visited {
+  border: none;
+  outline: none;
+  color: #fefefe;
+  background-color: #9b59b6;
+  border-radius: 3px;
+  
+  &:hover, &:focus {
+    transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+    animation: gelatine 0.5s 1;
+  }
+}
