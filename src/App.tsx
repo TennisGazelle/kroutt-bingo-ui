@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { 
   Box, 
   Button, 
-  Card, 
-  CardContent, 
   Container, 
   FormControl, 
   Grid, 
@@ -16,6 +14,7 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
+import { CardScanner } from './CardScanner';
 
 // --- Theme Setup ---
 const theme = createTheme({
@@ -164,8 +163,6 @@ const ControlsBox = ({ gameMode, setGameMode, onReset }: ControlsProps) => (
     </Button>
   </Paper>
 );
-
-import { CardScanner } from './CardScanner';
 
 // --- Main Layout ---
 function App() {

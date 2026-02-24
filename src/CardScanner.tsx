@@ -52,7 +52,8 @@ export const CardScanner = ({ onScanComplete, open, onClose }: CardScannerProps)
         }
       });
 
-      const { data: { text, lines } } = await worker.recognize(image);
+      const ret = await worker.recognize(image);
+      const { text, lines } = ret.data as any;
       console.log("OCR Raw Text:", text);
       
       setStatus('Parsing grid...');
