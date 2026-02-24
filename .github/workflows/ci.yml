@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "master", "first-pass", "feat/mobile-ocr" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "first-pass" ]
+    branches: [ "master" ]
 
 jobs:
   build_and_test:
